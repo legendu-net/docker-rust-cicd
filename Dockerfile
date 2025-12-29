@@ -1,7 +1,7 @@
 # NAME: dclong/rust-cicd
 FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get -y update && apt-get -y install --no-install-recommends \
         software-properties-common git \
         python3 python3-pip \
         gcc libc-dev \
