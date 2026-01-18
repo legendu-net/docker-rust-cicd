@@ -1,11 +1,8 @@
 # NAME: dclong/rust-cicd
-FROM ubuntu:24.04
+FROM dclong/python
 
-RUN apt-get -y update && apt-get -y install --no-install-recommends \
-        software-properties-common git \
-        python3 python3-pip \
-        gcc libc-dev \
-    && pip3 install --break-system-packages github-rest-api
+RUN pip3 install github-rest-api
+
 ENV RUSTUP_HOME=/usr/local/rustup PATH=/usr/local/cargo/bin:$PATH
 COPY --from=dclong/rust /usr/local/rustup/ /usr/local/rustup/
 COPY --from=dclong/rust \
